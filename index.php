@@ -25,3 +25,13 @@ switch ($page) {
         echo "ERROR 404<br>Page Not Found";
         break;
 }
+$id = 2;
+
+$pdo = new PDO("mysql:host=localhost;dbname=commevousvoulez;", "root", "");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$query = "SELECT * FROM `user` WHERE id=:id";
+$statement = $pdo->prepare($query);
+$statement->execute([":id" => $id]);
+$dataUser = $statement->fetchAll(PDO::FETCH_OBJ);
+
+var_dump($dataUser);
