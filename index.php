@@ -1,23 +1,35 @@
 <?php
 
+require_once __DIR__ . "/controller/UserController.php";
+require_once __DIR__ . "/controller/ProductController.php";
+require_once __DIR__ . "/model/dao/UserDAO.php";
+require_once __DIR__ . "/model/dao/ProductDAO.php";
+
+require_once "Database.php";
+
+$pdo = Database::getConnection();
+$userDao = new UserDAO($pdo);
+$users = $userDao->getAllUsers();
+$productDao = new ProductDAO($pdo);
+$products = $productDao->getAllProducts();
 $page = $_GET["page"] ?? "user";
 
 switch ($page) {
     case "user":
-        require_once __DIR__ . "/controller/UserController.php";
-        $controller = new UserController();
+        // require_once __DIR__ . "/controller/UserController.php";
+        $controller = new UserController($userDao);
         $controller->showUser();
         break;
 
     case "product":
-        require_once __DIR__ . "/controller/ProductController.php";
-        $controller = new ProductController();
+        // require_once __DIR__ . "/controller/ProductController.php";
+        $controller = new ProductController($productDao);
         $controller->showProduct();
         break;
 
     case "products":
-        require_once __DIR__ . "/controller/ProductController.php";
-        $controller = new ProductController();
+        // require_once __DIR__ . "/controller/ProductController.php";
+        $controller = new ProductController($productDao);
         $controller->showProducts();
         break;
 
@@ -25,13 +37,3 @@ switch ($page) {
         echo "ERROR 404<br>Page Not Found";
         break;
 }
-$id = 2;
-
-$pdo = new PDO("mysql:host=localhost;dbname=commevousvoulez;", "root", "");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$query = "SELECT * FROM `user` WHERE id=:id";
-$statement = $pdo->prepare($query);
-$statement->execute([":id" => $id]);
-$dataUser = $statement->fetchAll(PDO::FETCH_OBJ);
-
-var_dump($dataUser);

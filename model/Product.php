@@ -2,12 +2,17 @@
 
 class Product
 {
-    public string $title;
-    public float $price;
+    public int $id;
+    public string $nomProduit;
+    public float $prix;
+    public int $stock;
 
-    public function __construct($title, $price)
+
+    public function __construct($id, $nomProduit, $prix, $stock)
     {
-        $this->title = $title;
-        $this->price = $price;
+        $this->id = $id;
+        $this->nomProduit = $nomProduit;
+        $this->prix = $prix;
+        $this->stock = $stock;
     }
 }

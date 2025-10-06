@@ -8,8 +8,10 @@
 </head>
 
 <body>
-
-    <h1>Bienvenue <?= htmlspecialchars($user->name, ENT_QUOTES, "UTF-8") ?></h1>
+    <?php foreach ($users as $user): ?>
+        <p>Bienvenue <?= htmlspecialchars($user->prenom, ENT_QUOTES, "UTF-8") ?> <?= htmlspecialchars($user->nom, ENT_QUOTES, "UTF-8") ?></p>
+        <p>Vous avez <?= htmlspecialchars($user->age, ENT_QUOTES, "UTF-8") ?> ans</p><br>
+    <?php endforeach ?>
     <p>Ceci est mon petit site complètement légal pour vendre des gens !</p>
     <h4>Vous pouvez naviguer entre les pages ici : </h4>
     <nav>
