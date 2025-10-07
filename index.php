@@ -8,16 +8,14 @@ require_once __DIR__ . "/model/dao/ProductDAO.php";
 require_once "Database.php";
 
 $pdo = Database::getConnection();
-$userDao = new UserDAO($pdo);
-$users = $userDao->getAllUsers();
-$productDao = new ProductDAO($pdo);
-$products = $productDao->getAllProducts();
 $page = $_GET["page"] ?? "user";
 $action = $_GET["action"] ?? "showUser";
 
 switch ($page) {
 
     case "user":
+        $userDao = new UserDAO($pdo);
+        $users = $userDao->getAllUsers();
         $controller = new UserController($userDao);
         switch ($action) {
             case "showUser":
@@ -30,6 +28,8 @@ switch ($page) {
         break;
 
     case "product":
+        $productDao = new ProductDAO($pdo);
+        $products = $productDao->getAllProducts();
         $controller = new ProductController($productDao);
         switch ($action) {
             case "showProductDetail":
