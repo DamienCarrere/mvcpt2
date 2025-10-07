@@ -15,9 +15,9 @@
     </p>
     <h4>Vous pouvez naviguer entre les pages ici : </h4>
     <nav>
-        <a href="index.php?page=user">Utilisateur</a>
+        <a href="index.php?page=user&action=showUser">Utilisateur</a>
         <br>
-        <a href="index.php?page=products">Liste des produits</a>
+        <a href="index.php?page=product&action=showProductList">Liste des produits</a>
     </nav>
 </body>
 

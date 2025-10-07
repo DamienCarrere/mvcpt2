@@ -12,14 +12,14 @@
         <p>Bienvenue <?= htmlspecialchars($user->prenom, ENT_QUOTES, "UTF-8") ?>
             <?= htmlspecialchars($user->nom, ENT_QUOTES, "UTF-8") ?>
         </p>
-        <a href="index.php?page=detailUser&id=<?= $user->id ?>">Détail Utilisateur</a>
+        <a href="index.php?page=user&action=detailUser&id=<?= $user->id ?>">Détail Utilisateur</a>
     <?php endforeach ?>
     <p>Ceci est mon petit site complètement légal pour vendre des gens !</p>
     <h4>Vous pouvez naviguer entre les pages ici : </h4>
     <nav>
-        <a href="index.php?page=product">Produit</a>
+        <a href="index.php?page=product&action=showProductDetail">Produit</a>
         <br>
-        <a href="index.php?page=products">Liste des produits</a>
+        <a href="index.php?page=product&action=showProductList">Liste des produits</a>
     </nav>
 </body>
 

@@ -14,7 +14,7 @@
     <p>Prénom: <?= htmlspecialchars($user->prenom) ?></p>
     <p>Âge: <?= htmlspecialchars($user->age) ?></p>
 
-    <a href="index.php?page=user">Retourner à la liste des utilisateurs</a>
+    <a href="index.php?page=user&action=showUser">Retourner à la liste des utilisateurs</a>
 </body>
 
 </html>

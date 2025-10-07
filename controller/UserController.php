@@ -18,8 +18,9 @@ class UserController
         // $user = "test";
         require __DIR__ . "/../view/userView.php";
     }
-    public function showUserById($id)
+    public function showUserById()
     {
+        $id = $_GET["id"] ?? null;
         $user = $this->userDao->getUserById($id);
         require __DIR__ . "/../view/userByIdView.php";
     }

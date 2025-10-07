@@ -27,8 +27,9 @@ class ProductController
         require __DIR__ . "/../view/productListView.php";
     }
 
-    public function showProductById($id)
+    public function showProductById()
     {
+        $id = $_GET["id"] ?? null;
         $product = $this->productDao->getProductById($id);
         require __DIR__ . "/../view/ProductByIdView.php";
     }

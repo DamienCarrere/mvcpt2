@@ -15,7 +15,7 @@
     <p>Stock restant: <?= htmlspecialchars($product->stock) ?></p>
     <p>Description: <?= htmlspecialchars($product->description) ?></p>
 
-    <a href="index.php?page=products">Retourner à la liste des produits</a>
+    <a href="index.php?page=product&action=showProductList">Retourner à la liste des produits</a>
 </body>
 
 </html>
