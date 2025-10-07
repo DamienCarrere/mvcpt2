@@ -44,4 +44,11 @@ class UserDAO
             return null;
         }
     }
+
+    public function deleteUser($id)
+    {
+        $query = "DELETE FROM `user` WHERE id = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([":id" => $id]);
+    }
 }

@@ -45,4 +45,11 @@ class ProductDAO
         }
     }
 
+    public function deleteProduct($id)
+    {
+        $query = "DELETE FROM `products` WHERE id = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([":id" => $id]);
+    }
+
 }

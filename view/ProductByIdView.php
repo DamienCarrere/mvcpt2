@@ -14,6 +14,9 @@
     <p>Prix: <?= htmlspecialchars($product->prix) ?>€</p>
     <p>Stock restant: <?= htmlspecialchars($product->stock) ?></p>
     <p>Description: <?= htmlspecialchars($product->description) ?></p>
+    <br>
+    <a href="index.php?page=product&action=deleteProduct&id=<?= $product->id ?>">Supprimer produit</a>
+    <br>
 
     <a href="index.php?page=product&action=showProductList">Retourner à la liste des produits</a>
 </body>

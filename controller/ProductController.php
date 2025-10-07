@@ -33,4 +33,13 @@ class ProductController
         $product = $this->productDao->getProductById($id);
         require __DIR__ . "/../view/ProductByIdView.php";
     }
+
+    public function deleteProductById()
+    {
+        $id = $_GET["id"] ?? null;
+        $this->productDao->deleteProduct($id);
+        header("Location: index.php?page=product&action=showProductList");
+        exit;
+    }
+
 }

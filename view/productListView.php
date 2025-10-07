@@ -14,6 +14,9 @@
         <form method="post">
             <p>Nom du produit: <?= htmlspecialchars($product->nomProduit, ENT_QUOTES, "UTF-8") ?> </p>
             <a href="index.php?page=product&action=detailProduct&id=<?= $product->id ?>">Détail du Produit</a>
+            <br>
+            <a href="index.php?page=product&action=deleteProduct&id=<?= $product->id ?>">Supprimer produit</a>
+            <br>
         <?php endforeach; ?>
         <h4>Vous pouvez naviguer entre les pages ici : </h4>
         <nav>

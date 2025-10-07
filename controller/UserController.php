@@ -24,4 +24,12 @@ class UserController
         $user = $this->userDao->getUserById($id);
         require __DIR__ . "/../view/userByIdView.php";
     }
+
+    public function deleteUserById()
+    {
+        $id = $_GET["id"] ?? null;
+        $this->userDao->deleteUser($id);
+        header("Location: index.php?page=user&action=showUser");
+        exit;
+    }
 }

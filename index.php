@@ -24,6 +24,9 @@ switch ($page) {
             case "detailUser":
                 $controller->showUserById();
                 break;
+            case "deleteUser":
+                $controller->deleteUserById();
+                break;
         }
         break;
 
@@ -41,6 +44,9 @@ switch ($page) {
             case "detailProduct":
                 $controller->showProductById();
                 break;
+            case "deleteProduct":
+                $controller->deleteProductById();
+                break;
         }
         break;
 
@@ -54,3 +60,9 @@ switch ($page) {
 //     $controller = new UserController($userDao);
 //     $controller->showUserById();
 //     break;
+
+
+// ajouter un bouton supprimer produit et supprimer utilisateur (dans la base de données)
+// besoin action et id dans l'url
+// méthode dans controleur
+// méthode dans DAO

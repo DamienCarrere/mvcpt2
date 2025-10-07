@@ -13,6 +13,9 @@
             <?= htmlspecialchars($user->nom, ENT_QUOTES, "UTF-8") ?>
         </p>
         <a href="index.php?page=user&action=detailUser&id=<?= $user->id ?>">Détail Utilisateur</a>
+        <br>
+        <a href="index.php?page=user&action=deleteUser&id=<?= $user->id ?>">Supprimer utilisateur</a>
+        <br>
     <?php endforeach ?>
     <p>Ceci est mon petit site complètement légal pour vendre des gens !</p>
     <h4>Vous pouvez naviguer entre les pages ici : </h4>
