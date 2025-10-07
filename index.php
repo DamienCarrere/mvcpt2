@@ -32,7 +32,17 @@ switch ($page) {
         $controller = new ProductController($productDao);
         $controller->showProducts();
         break;
-
+    case "detailProduct":
+        // require_once __DIR__ . "/controller/ProductController.php";
+        $controller = new ProductController($productDao);
+        $id = $_GET["id"] ?? null;
+        $controller->showProductById($id);
+        break;
+    case "detailUser":
+        $controller = new UserController($userDao);
+        $id = $_GET["id"] ?? null;
+        $controller->showUserById($id);
+        break;
     default:
         echo "ERROR 404<br>Page Not Found";
         break;

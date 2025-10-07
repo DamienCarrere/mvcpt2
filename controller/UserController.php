@@ -18,4 +18,9 @@ class UserController
         // $user = "test";
         require __DIR__ . "/../view/userView.php";
     }
+    public function showUserById($id)
+    {
+        $user = $this->userDao->getUserById($id);
+        require __DIR__ . "/../view/userByIdView.php";
+    }
 }

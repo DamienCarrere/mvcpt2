@@ -20,9 +20,29 @@ class ProductDAO
         $products = [];
         foreach ($dataProduct as $product) {
             // $product = new Product($product->id, $product->nomProduit, $product->prix, $product->stock);
-            $product = new Product($product["id"], $product["nomProduit"], $product["prix"], $product["stock"]);
+            $product = new Product($product["id"], $product["nomProduit"], $product["prix"], $product["stock"], $product["description"]);
             $products[] = $product;
         }
         return $products;
     }
+    public function getProductById($id)
+    {
+        $query = "SELECT * FROM `products` WHERE id = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([":id" => $id]);
+        $dataProduct = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($dataProduct) {
+            return new Product(
+                $dataProduct["id"],
+                $dataProduct["nomProduit"],
+                $dataProduct["prix"],
+                $dataProduct["stock"],
+                $dataProduct["description"]
+            );
+        } else {
+            return null;
+        }
+    }
+
 }
