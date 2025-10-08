@@ -51,4 +51,11 @@ class UserDAO
         $statement = $this->pdo->prepare($query);
         $statement->execute([":id" => $id]);
     }
+
+    public function addUser()
+    {
+        $query = "INSERT INTO `user`";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+    }
 }

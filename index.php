@@ -47,6 +47,9 @@ switch ($page) {
             case "deleteProduct":
                 $controller->deleteProductById();
                 break;
+            case "addProduct":
+                $controller->addProductForm();
+                break;
         }
         break;
 

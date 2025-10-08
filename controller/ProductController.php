@@ -42,4 +42,9 @@ class ProductController
         exit;
     }
 
+    public function addProductForm()
+    {
+        $this->productDao->addProduct();
+        require __DIR__ . "/../view/addProductView.php";
+    }
 }

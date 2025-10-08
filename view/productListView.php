@@ -18,6 +18,9 @@
             <a href="index.php?page=product&action=deleteProduct&id=<?= $product->id ?>">Supprimer produit</a>
             <br>
         <?php endforeach; ?>
+
+        <br>
+        <a href="index.php?page=product&action=addProduct">Ajouter un produit</a>
         <h4>Vous pouvez naviguer entre les pages ici : </h4>
         <nav>
             <a href="index.php?page=user&action=showUser">Utilisateur</a>
