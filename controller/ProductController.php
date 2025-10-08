@@ -23,7 +23,7 @@ class ProductController
     public function showProducts()
     {
         $products = $this->productDao->getAllProducts();
-        // $user = "test";
+        // $product = "test";
         require __DIR__ . "/../view/productListView.php";
     }
 
@@ -57,5 +57,25 @@ class ProductController
             exit;
         }
         require __DIR__ . "/../view/addProductView.php";
+    }
+
+    public function updateProductForm()
+    {
+        $id = $_POST["id"] ?? null;
+        $product = $this->productDao->getProductById($id);
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $nomProduit = $_POST["nomProduit"];
+            $prix = $_POST["prix"];
+            $stock = $_POST["stock"];
+            $description = $_POST["description"];
+
+            $product = new Product($id, $nomProduit, $prix, $stock, $description);
+
+            $this->productDao->updateProduct($product);
+            header("Location: index.php?page=product&action=detailProduct&id=$id");
+            exit;
+        }
+        require __DIR__ . "/../view/updateProductView.php";
     }
 }

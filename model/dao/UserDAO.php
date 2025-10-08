@@ -52,10 +52,17 @@ class UserDAO
         $statement->execute([":id" => $id]);
     }
 
-    public function addProduct(User $user)
+    public function addUser(User $user)
     {
         $query = "INSERT INTO `user` (nom, prenom, age) VALUES (:nom, :prenom, :age)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([":nom" => $user->nom, ":prenom" => $user->prenom, ":age" => $user->age]);
+    }
+
+    public function updateUser(User $user)
+    {
+        $query = "UPDATE `user` SET nom = :nom, prenom = :prenom, age = :age WHERE id = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([":nom" => $user->nom, ":prenom" => $user->prenom, ":age" => $user->age, ":id" => $user->id]);
     }
 }

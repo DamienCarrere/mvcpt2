@@ -30,6 +30,9 @@ switch ($page) {
             case "addUser":
                 $controller->addUserForm();
                 break;
+            case "updateUser":
+                $controller->updateUserForm();
+                break;
         }
         break;
 
@@ -52,6 +55,9 @@ switch ($page) {
                 break;
             case "addProduct":
                 $controller->addProductForm();
+                break;
+            case "updateProduct":
+                $controller->updateProductForm();
                 break;
         }
         break;

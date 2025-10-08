@@ -14,6 +14,8 @@
     <p>Prénom: <?= htmlspecialchars($user->prenom) ?></p>
     <p>Âge: <?= htmlspecialchars($user->age) ?></p>
     <br>
+    <a href="index.php?page=user&action=updateUser&id=<?= $user->id ?>">Modifier utilisateur</a>
+    <br>
     <a href="index.php?page=user&action=deleteUser&id=<?= $user->id ?>">Supprimer utilisateur</a>
     <br>
     <a href="index.php?page=user&action=showUser">Retourner à la liste des utilisateurs</a>

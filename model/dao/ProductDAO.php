@@ -54,9 +54,15 @@ class ProductDAO
 
     public function addProduct(Product $product)
     {
-
         $query = "INSERT INTO `products` (nomProduit, prix, stock, description) VALUES (:nomProduit, :prix, :stock, :description)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([":nomProduit" => $product->nomProduit, ":prix" => $product->prix, ":stock" => $product->stock, ":description" => $product->description]);
+    }
+
+    public function updateProduct(Product $product)
+    {
+        $query = "UPDATE `products` SET nomProduit = :nomProduit, prix = :prix, stock = :stock, description = :description WHERE id = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([":nomProduit" => $product->nomProduit, ":prix" => $product->prix, ":stock" => $product->stock, ":description" => $product->description, ":id" => $product->id]);
     }
 }

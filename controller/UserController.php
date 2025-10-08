@@ -42,10 +42,29 @@ class UserController
 
             $user = new User(null, $nom, $prenom, $age);
 
-            $this->userDao->addProduct($user);
+            $this->userDao->addUser($user);
             header("Location: index.php?page=user&action=showUser");
             exit;
         }
         require __DIR__ . "/../view/addUserView.php";
+    }
+
+    public function updateUserForm()
+    {
+        $id = $_GET["id"] ?? null;
+        $user = $this->userDao->getUserById($id);
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $nom = $_POST["nom"];
+            $prenom = $_POST["prenom"];
+            $age = $_POST["age"];
+
+            $user = new User($id, $nom, $prenom, $age);
+
+            $this->userDao->updateUser($user);
+            header("Location: index.php?page=user&action=showUser");
+            exit;
+        }
+        require __DIR__ . "/../view/updateUserView.php";
     }
 }
