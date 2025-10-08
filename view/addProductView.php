@@ -10,13 +10,13 @@
 <body>
     <h1>Add Product</h1>
     <form method="POST">
-        <label>Nom du Produit: </label>
+        <label for="nomProduit">Nom du Produit: </label>
         <input type="text" name="nomProduit" required><br>
-        <label>Prix: </label>
+        <label for="prix">Prix: </label>
         <input type="number" name="prix" required><br>
-        <label>Stock: </label>
+        <label for="stock">Stock: </label>
         <input type="text" name="stock" required><br>
-        <label>Description: </label>
+        <label for="description">Description: </label>
         <input type="text" name="description" required><br>
         <button type="submit" name="addProduct">Ajouter Produit</button>
     </form>
