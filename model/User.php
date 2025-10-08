@@ -2,7 +2,7 @@
 
 class User
 {
-    public int $id;
+    public ?int $id;
     public string $nom;
     public string $prenom;
     public int $age;

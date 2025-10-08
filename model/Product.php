@@ -2,7 +2,7 @@
 
 class Product
 {
-    public int $id;
+    public ?int $id;
     public string $nomProduit;
     public float $prix;
     public int $stock;

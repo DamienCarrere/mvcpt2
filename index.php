@@ -27,6 +27,9 @@ switch ($page) {
             case "deleteUser":
                 $controller->deleteUserById();
                 break;
+            case "addUser":
+                $controller->addUserForm();
+                break;
         }
         break;
 

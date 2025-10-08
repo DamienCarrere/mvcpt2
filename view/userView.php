@@ -18,6 +18,9 @@
         <br>
     <?php endforeach ?>
     <p>Ceci est mon petit site complètement légal pour vendre des gens !</p>
+
+    <a href="index.php?page=user&action=addUser">Ajouter un utilisateur</a>
+    <br>
     <h4>Vous pouvez naviguer entre les pages ici : </h4>
     <nav>
         <a href="index.php?page=product&action=showProductDetail">Produit</a>

@@ -32,4 +32,20 @@ class UserController
         header("Location: index.php?page=user&action=showUser");
         exit;
     }
+
+    public function addUserForm()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $nom = $_POST["nom"];
+            $prenom = $_POST["prenom"];
+            $age = $_POST["age"];
+
+            $user = new User(null, $nom, $prenom, $age);
+
+            $this->userDao->addProduct($user);
+            header("Location: index.php?page=user&action=showUser");
+            exit;
+        }
+        require __DIR__ . "/../view/addUserView.php";
+    }
 }

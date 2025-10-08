@@ -15,7 +15,7 @@
         <label for="prix">Prix: </label>
         <input type="number" name="prix" required><br>
         <label for="stock">Stock: </label>
-        <input type="text" name="stock" required><br>
+        <input type="number" name="stock" required><br>
         <label for="description">Description: </label>
         <input type="text" name="description" required><br>
         <button type="submit" name="addProduct">Ajouter Produit</button>

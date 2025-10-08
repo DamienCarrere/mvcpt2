@@ -50,7 +50,11 @@ class ProductController
             $stock = $_POST["stock"];
             $description = $_POST["description"];
 
-            $this->productDao->addProduct($nomProduit, $prix, $stock, $description);
+            $product = new Product(null, $nomProduit, $prix, $stock, $description);
+
+            $this->productDao->addProduct($product);
+            header("Location: index.php?page=product&action=showProductList");
+            exit;
         }
         require __DIR__ . "/../view/addProductView.php";
     }
