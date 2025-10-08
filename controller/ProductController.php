@@ -44,7 +44,14 @@ class ProductController
 
     public function addProductForm()
     {
-        $this->productDao->addProduct();
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $nomProduit = $_POST["nomProduit"];
+            $prix = $_POST["prix"];
+            $stock = $_POST["stock"];
+            $description = $_POST["description"];
+
+            $this->productDao->addProduct($nomProduit, $prix, $stock, $description);
+        }
         require __DIR__ . "/../view/addProductView.php";
     }
 }
