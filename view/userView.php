@@ -12,9 +12,15 @@
         <p>Bienvenue <?= htmlspecialchars($user->prenom, ENT_QUOTES, "UTF-8") ?>
             <?= htmlspecialchars($user->nom, ENT_QUOTES, "UTF-8") ?>
         </p>
-        <a href="index.php?page=user&action=detailUser&id=<?= $user->id ?>">Détail Utilisateur</a>
+        <form method="POST" action="index.php?page=user&action=detailUser">
+            <input type="hidden" name="id" value="<?= $user->id ?>">
+            <button type="submit">Détail Utilisateur</button>
+        </form>
         <br>
-        <a href="index.php?page=user&action=deleteUser&id=<?= $user->id ?>">Supprimer utilisateur</a>
+        <form method="POST" action="index.php?page=user&action=deleteUser">
+            <input type="hidden" name="id" value="<?= $user->id ?>">
+            <button type="submit">Supprimer utilisateur</button>
+        </form>
         <br>
     <?php endforeach ?>
     <p>Ceci est mon petit site complètement légal pour vendre des gens !</p>

@@ -15,9 +15,15 @@
     <p>Stock restant: <?= htmlspecialchars($product->stock) ?></p>
     <p>Description: <?= htmlspecialchars($product->description) ?></p>
     <br>
-    <a href="index.php?page=product&action=updateProduct&id=<?= $product->id ?>">Modifier produit</a>
+    <form method="POST" action="index.php?page=product&action=updateProduct">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($product->id) ?>">
+        <button type="submit">Modifier Produit</button>
+    </form>
     <br>
-    <a href="index.php?page=product&action=deleteProduct&id=<?= $product->id ?>">Supprimer produit</a>
+    <form method="POST" action="index.php?page=product&action=deleteProduct">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($product->id) ?>">
+        <button type="submit">Supprimer</button>
+    </form>
     <br>
 
     <a href="index.php?page=product&action=showProductList">Retourner à la liste des produits</a>

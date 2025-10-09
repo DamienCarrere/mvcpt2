@@ -1,3 +1,9 @@
+<?php if (!$user): ?>
+    <p>Utilisateur introuvable.</p>
+    <a href="index.php?page=user&action=showUser">Retour à la liste</a>
+    <?php return; ?>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,9 +20,15 @@
     <p>Prénom: <?= htmlspecialchars($user->prenom) ?></p>
     <p>Âge: <?= htmlspecialchars($user->age) ?></p>
     <br>
-    <a href="index.php?page=user&action=updateUser&id=<?= $user->id ?>">Modifier utilisateur</a>
+    <form method="POST" action="index.php?page=user&action=updateUser">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($user->id) ?>">
+        <button type="submit">Modifier utilisateur</button>
+    </form>
     <br>
-    <a href="index.php?page=user&action=deleteUser&id=<?= $user->id ?>">Supprimer utilisateur</a>
+    <form method="POST" action="index.php?page=user&action=deleteUser">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($user->id) ?>">
+        <button type="submit">Supprimer utilisateur</button>
+    </form>
     <br>
     <a href="index.php?page=user&action=showUser">Retourner à la liste des utilisateurs</a>
 </body>

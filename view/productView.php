@@ -10,8 +10,7 @@
 <body>
 
     <h1>Un seul produit</h1>
-    <p>Nom du produit: <?= htmlspecialchars($product->nomProduit, ENT_QUOTES, "UTF-8") ?> || Prix:
-        <?= htmlspecialchars($product->prix, ENT_QUOTES, "UTF-8") ?>€
+    <p>Nom du produit: <?= htmlspecialchars($product->nomProduit, ENT_QUOTES, "UTF-8") ?> || Prix: <?= htmlspecialchars($product->prix, ENT_QUOTES, "UTF-8") ?>€
     </p>
     <h4>Vous pouvez naviguer entre les pages ici : </h4>
     <nav>

@@ -20,14 +20,14 @@ class UserController
     }
     public function showUserById()
     {
-        $id = $_GET["id"] ?? null;
+        $id = $_POST["id"] ?? null;
         $user = $this->userDao->getUserById($id);
         require __DIR__ . "/../view/userByIdView.php";
     }
 
     public function deleteUserById()
     {
-        $id = $_GET["id"] ?? null;
+        $id = $_POST["id"] ?? null;
         $this->userDao->deleteUser($id);
         header("Location: index.php?page=user&action=showUser");
         exit;
@@ -51,17 +51,17 @@ class UserController
 
     public function updateUserForm()
     {
-        $id = $_GET["id"] ?? null;
-        $user = $this->userDao->getUserById($id);
 
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $nom = $_POST["nom"];
-            $prenom = $_POST["prenom"];
-            $age = $_POST["age"];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'], $_POST['nom'], $_POST['prenom'], $_POST['age'])) {
+            $id     = $_POST['id'];
+            $nom    = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $age    = $_POST['age'];
+
 
             $user = new User($id, $nom, $prenom, $age);
-
             $this->userDao->updateUser($user);
+
             header("Location: index.php?page=user&action=showUser");
             exit;
         }

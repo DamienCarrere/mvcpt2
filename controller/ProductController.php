@@ -29,14 +29,14 @@ class ProductController
 
     public function showProductById()
     {
-        $id = $_GET["id"] ?? null;
+        $id = $_POST["id"] ?? null;
         $product = $this->productDao->getProductById($id);
         require __DIR__ . "/../view/ProductByIdView.php";
     }
 
     public function deleteProductById()
     {
-        $id = $_GET["id"] ?? null;
+        $id = $_POST["id"] ?? null;
         $this->productDao->deleteProduct($id);
         header("Location: index.php?page=product&action=showProductList");
         exit;
@@ -44,7 +44,7 @@ class ProductController
 
     public function addProductForm()
     {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["nomProduit"], $_POST["prix"], $_POST["stock"], $_POST["description"])) {
             $nomProduit = $_POST["nomProduit"];
             $prix = $_POST["prix"];
             $stock = $_POST["stock"];
@@ -61,10 +61,9 @@ class ProductController
 
     public function updateProductForm()
     {
-        $id = $_POST["id"] ?? null;
-        $product = $this->productDao->getProductById($id);
 
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"], $_POST["nomProduit"], $_POST["prix"], $_POST["stock"], $_POST["description"])) {
+            $id = $_POST["id"] ?? null;
             $nomProduit = $_POST["nomProduit"];
             $prix = $_POST["prix"];
             $stock = $_POST["stock"];
@@ -73,7 +72,7 @@ class ProductController
             $product = new Product($id, $nomProduit, $prix, $stock, $description);
 
             $this->productDao->updateProduct($product);
-            header("Location: index.php?page=product&action=detailProduct&id=$id");
+            header("Location: index.php?page=product&action=detailProduct");
             exit;
         }
         require __DIR__ . "/../view/updateProductView.php";

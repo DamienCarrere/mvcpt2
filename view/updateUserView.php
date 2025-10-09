@@ -9,13 +9,14 @@
 
 <body>
     <h1>Update User</h1>
-    <form method="POST">
+    <form method="POST" action="index.php?page=user&action=updateUser">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($_POST["id"]) ?>">
         <label for="nom">Nom de l'utilisateur: </label>
-        <input type="text" name="nom" value="<?= $user->nom ?>" required><br>
+        <input type="text" name="nom" required><br>
         <label for="prenom">Prénom de l'utilisateur: </label>
-        <input type="text" name="prenom" value="<?= $user->prenom ?>" required><br>
+        <input type="text" name="prenom" required><br>
         <label for="age">Âge: </label>
-        <input type="number" name="age" value="<?= $user->age ?>" required><br>
+        <input type="number" name="age" required><br>
         <button type="submit" name="updateUser">Appliquer les modifications</button>
     </form>
 </body>
