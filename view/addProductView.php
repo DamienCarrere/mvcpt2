@@ -9,7 +9,7 @@
 
 <body>
     <h1>Add Product</h1>
-    <form method="POST">
+    <form method="POST" action="index.php?page=product&action=addProduct">
         <label for="nomProduit">Nom du Produit: </label>
         <input type="text" name="nomProduit" required><br>
         <label for="prix">Prix: </label>
@@ -20,7 +20,8 @@
         <input type="text" name="description" required><br>
         <button type="submit" name="addProduct">Ajouter Produit</button>
     </form>
-
+    <br>
+    <a href="index.php?page=product&action=showProductList">Retour à la liste des Produits</a>
 </body>
 
 </html>
